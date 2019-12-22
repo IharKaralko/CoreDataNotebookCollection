@@ -12,6 +12,9 @@
 		431605C2239FB11B002140F2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431605C1239FB11B002140F2 /* CoreDataManager.swift */; };
 		431605C5239FDDB1002140F2 /* DataSourceOfNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431605C4239FDDB1002140F2 /* DataSourceOfNotebook.swift */; };
 		431605C7239FDDD1002140F2 /* DataSourceOfNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431605C6239FDDD1002140F2 /* DataSourceOfNote.swift */; };
+		4326519E23A7D20200E3B69F /* UpdateToNewEntity.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4326519D23A7D20200E3B69F /* UpdateToNewEntity.xcmappingmodel */; };
+		432651A023A7D34C00E3B69F /* UpdateToNewEntityPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326519F23A7D34C00E3B69F /* UpdateToNewEntityPolicy.swift */; };
+		432651A223A7D9D600E3B69F /* DataSourceOfNoteContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432651A123A7D9D600E3B69F /* DataSourceOfNoteContent.swift */; };
 		438F9287239D32BE00909C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F9286239D32BE00909C4C /* AppDelegate.swift */; };
 		438F9289239D32BE00909C4C /* NotebooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F9288239D32BE00909C4C /* NotebooksListViewController.swift */; };
 		438F928C239D32BE00909C4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438F928A239D32BE00909C4C /* Main.storyboard */; };
@@ -30,6 +33,10 @@
 		431605C1239FB11B002140F2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		431605C4239FDDB1002140F2 /* DataSourceOfNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceOfNotebook.swift; sourceTree = "<group>"; };
 		431605C6239FDDD1002140F2 /* DataSourceOfNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceOfNote.swift; sourceTree = "<group>"; };
+		4326519C23A7CCA200E3B69F /* NotebookCollectionWithNewEntity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotebookCollectionWithNewEntity.xcdatamodel; sourceTree = "<group>"; };
+		4326519D23A7D20200E3B69F /* UpdateToNewEntity.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UpdateToNewEntity.xcmappingmodel; sourceTree = "<group>"; };
+		4326519F23A7D34C00E3B69F /* UpdateToNewEntityPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateToNewEntityPolicy.swift; sourceTree = "<group>"; };
+		432651A123A7D9D600E3B69F /* DataSourceOfNoteContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceOfNoteContent.swift; sourceTree = "<group>"; };
 		438F9283239D32BE00909C4C /* NotebookCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotebookCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438F9286239D32BE00909C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		438F9288239D32BE00909C4C /* NotebooksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebooksListViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +67,7 @@
 			children = (
 				431605C4239FDDB1002140F2 /* DataSourceOfNotebook.swift */,
 				431605C6239FDDD1002140F2 /* DataSourceOfNote.swift */,
+				432651A123A7D9D600E3B69F /* DataSourceOfNoteContent.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -99,7 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				438F928D239D32BE00909C4C /* NotebookCollection.xcdatamodeld */,
+				4326519D23A7D20200E3B69F /* UpdateToNewEntity.xcmappingmodel */,
 				431605C1239FB11B002140F2 /* CoreDataManager.swift */,
+				4326519F23A7D34C00E3B69F /* UpdateToNewEntityPolicy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,6 +250,9 @@
 				431605C2239FB11B002140F2 /* CoreDataManager.swift in Sources */,
 				430F5CA523A1137400447E13 /* NotebookListWithFRCViewController.swift in Sources */,
 				4393ABFB239E604300BF1D29 /* NotesListViewController.swift in Sources */,
+				432651A023A7D34C00E3B69F /* UpdateToNewEntityPolicy.swift in Sources */,
+				432651A223A7D9D600E3B69F /* DataSourceOfNoteContent.swift in Sources */,
+				4326519E23A7D20200E3B69F /* UpdateToNewEntity.xcmappingmodel in Sources */,
 				431605C0239F7C75002140F2 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,9 +458,10 @@
 		438F928D239D32BE00909C4C /* NotebookCollection.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				4326519C23A7CCA200E3B69F /* NotebookCollectionWithNewEntity.xcdatamodel */,
 				438F928E239D32BE00909C4C /* NotebookCollection.xcdatamodel */,
 			);
-			currentVersion = 438F928E239D32BE00909C4C /* NotebookCollection.xcdatamodel */;
+			currentVersion = 4326519C23A7CCA200E3B69F /* NotebookCollectionWithNewEntity.xcdatamodel */;
 			path = NotebookCollection.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

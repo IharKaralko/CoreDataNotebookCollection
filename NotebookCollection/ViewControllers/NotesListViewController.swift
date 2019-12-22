@@ -53,6 +53,8 @@ class NotesListViewController: UIViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 vc.note = note(at: indexPath)
                 vc.dataSourceOfNote = dataSourceOfNote
+                vc.dataSourceOfNoteContent = DataSourceOfNoteContent()
+                vc.noteContent = vc.dataSourceOfNoteContent.getNoteContent(note: vc.note)
                 
                 vc.onDelete = { [weak self] in
                     if let indexPath = self?.tableView.indexPathForSelectedRow {

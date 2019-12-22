@@ -14,13 +14,15 @@ class DetailsViewController: UIViewController {
     var note: Note!
     var onDelete: (() -> Void)?
     var dataSourceOfNote: DataSourceOfNote!
+    var noteContent: NoteContent!
+    var dataSourceOfNoteContent: DataSourceOfNoteContent!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let title = note.title {
             navigationItem.title = title
          }
-        textView.text = note.text
+       textView.attributedText = noteContent.attributedText
     }
     
     @IBAction func deleteNote(_ sender: UIBarButtonItem) {
@@ -43,6 +45,9 @@ extension DetailsViewController {
 
 extension DetailsViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
-      dataSourceOfNote.updateNote(note: note, text:  textView.text)
+//        noteContent.attributedText = textView.attributedText
+//     dataSourceOfNoteContent.updateText()
+//        CoreDataManager.instance.saveContext()
+    dataSourceOfNoteContent.updateText(note: note, text: textView.attributedText)
     }
 }

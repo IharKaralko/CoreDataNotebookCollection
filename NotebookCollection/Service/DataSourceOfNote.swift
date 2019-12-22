@@ -49,7 +49,7 @@ extension DataSourceOfNote {
     }
     
     func updateNote(note: Note, text:String) {
-        note.text = text
+     //   note.text = text
         CoreDataManager.instance.saveContext()
     }
 }
