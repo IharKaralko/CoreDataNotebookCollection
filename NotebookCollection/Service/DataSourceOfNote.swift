@@ -10,27 +10,24 @@ import Foundation
 import CoreData
 
 class DataSourceOfNote {
-    
     private  var context: NSManagedObjectContext
     
-    init(context: NSManagedObjectContext = CoreDataManager.instance.persistentContainer.viewContext){
+    init(context: NSManagedObjectContext = CoreDataManager.instance.persistentContainer.viewContext) {
         self.context = context
     }
 }
 
 extension DataSourceOfNote {
-    func getNotes(notebook: Notebook) -> [Note]{
+    func getNotes(notebook: Notebook) -> [Note] {
         var notes = [Note]()
         let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
         let predicate = NSPredicate(format: "notebook == %@", notebook)
         fetchRequest.predicate = predicate
-        let sortDescriptor = NSSortDescriptor(key: "creationDate",
-                                              ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         if let result = try? context.fetch(fetchRequest) {
             notes = result
         }
-        
         return notes
     }
     
@@ -49,7 +46,6 @@ extension DataSourceOfNote {
     }
     
     func updateNote(note: Note, text:String) {
-     //   note.text = text
         CoreDataManager.instance.saveContext()
     }
 }

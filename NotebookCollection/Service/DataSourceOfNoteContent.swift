@@ -10,36 +10,29 @@ import Foundation
 import CoreData
 
 class DataSourceOfNoteContent {
-    
     private  var context: NSManagedObjectContext
     
-    init(context: NSManagedObjectContext = CoreDataManager.instance.persistentContainer.viewContext){
+    init(context: NSManagedObjectContext = CoreDataManager.instance.persistentContainer.viewContext) {
         self.context = context
     }
 }
 
 extension DataSourceOfNoteContent {
     func getNoteContent(note: Note) -> NoteContent{
-      //  var noteContent = createNoteContent(note: note)
         let fetchRequest: NSFetchRequest<NoteContent> = NoteContent.fetchRequest()
         let predicate = NSPredicate(format: "note == %@", note)
         fetchRequest.predicate = predicate
-//        let sortDescriptor = NSSortDescriptor(key: "creationDate",
-//                                              ascending: true)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
         if let result = try? context.fetch(fetchRequest), let content = result.first {
-           var noteContent = content
+            let noteContent = content
             return  noteContent
-            
         } else {
-        var eee = createNoteContent(note: note)
-            return eee
-            
+            let noteContent = createNoteContent(note: note)
+            return noteContent
         }
     }
     
     func createNoteContent(note: Note) -> NoteContent {
-        var noteContent = NoteContent(context: context)
+        let noteContent = NoteContent(context: context)
         noteContent.textID = UUID().uuidString
         noteContent.attributedText = NSAttributedString(string: " ")
         noteContent.note = note
@@ -52,18 +45,7 @@ extension DataSourceOfNoteContent {
         CoreDataManager.instance.saveContext()
     }
     
-    func updateText(note: Note, text:NSAttributedString) {
-//        let fetchRequest: NSFetchRequest<NoteContent> = NoteContent.fetchRequest()
-//        let predicate = NSPredicate(format: "note == %@", note)
-//        fetchRequest.predicate = predicate
-//        //
-////            let fetchRequest = NSFetchRequest<NoteContent>(entityName: "NoteContent")
-////            fetchRequest.predicate = NSPredicate(format: "note == %@", note)
-//
-//        if let result = try? context.fetch(fetchRequest), let content = result.first {
-//             content.attributedText = text
-//
-//        }
+    func updateText(note: Note, text: NSAttributedString) {
         note.noteContent?.attributedText = text
         CoreDataManager.instance.saveContext()
     }

@@ -26,7 +26,7 @@ class NotesListViewController: UIViewController {
         navigationItem.title = notebook.name
         navigationItem.rightBarButtonItem = editButtonItem
         _notes = dataSourceOfNote.getNotes(notebook: notebook)
-
+        
         updateEditButtonState()
     }
     
@@ -52,7 +52,6 @@ class NotesListViewController: UIViewController {
         if let vc = segue.destination as? DetailsViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 vc.note = note(at: indexPath)
-                vc.dataSourceOfNote = dataSourceOfNote
                 vc.dataSourceOfNoteContent = DataSourceOfNoteContent()
                 vc.noteContent = vc.dataSourceOfNoteContent.getNoteContent(note: vc.note)
                 
