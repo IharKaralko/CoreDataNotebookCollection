@@ -50,12 +50,12 @@ private extension DetailsViewController {
     }
     
     func makeToolbarItems() -> [UIBarButtonItem] {
-        let bold = UIBarButtonItem.menuButton(self, action: #selector(boldTapped(sender:)), imageName: "icons8-u-turn-to-left-50")
+        let normal = UIBarButtonItem.menuButton(self, action: #selector(normalTapped(sender:)), imageName: "icons8-u-turn-to-left-50")
         let red = UIBarButtonItem.menuButton(self, action: #selector(redTapped(sender:)), imageName: "toolbar-underline")
-        let cow = UIBarButtonItem.menuButton(self, action: #selector(normalTapped(sender:)), imageName: "toolbar-bold")
+        let bold = UIBarButtonItem.menuButton(self, action: #selector(boldTapped(sender:)), imageName: "toolbar-bold")
         
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        return  [space, bold, space, cow, space, red, space]
+        return  [space, normal, space, bold, space, red, space]
     }
     
     @objc
@@ -90,8 +90,8 @@ private extension DetailsViewController {
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 14.0) as Any,
             .foregroundColor: UIColor.black,
-            .underlineStyle: 0,
-            .underlineColor: UIColor.black
+            .underlineStyle: 0
+           // .underlineColor: UIColor.black
         ]
         newText.addAttributes(attributes, range: textView.selectedRange)
         let selectedTextRange = textView.selectedTextRange
