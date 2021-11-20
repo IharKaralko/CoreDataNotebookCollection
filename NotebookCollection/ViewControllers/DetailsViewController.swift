@@ -13,7 +13,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet private weak var textView: UITextView!
     var note: Note!
     var onDelete: (() -> Void)?
-    var dataSourceOfNote: DataSourceOfNote!
+    var dataSourceOfNote: DataSourceOfNote?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +43,7 @@ extension DetailsViewController {
 
 extension DetailsViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
-      dataSourceOfNote.updateNote(note: note, text:  textView.text)
+        guard let dataSource = dataSourceOfNote else { return }
+        dataSource.updateNote(note: note, text:  textView.text)
     }
 }
