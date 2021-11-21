@@ -12,7 +12,7 @@ class NotebooksListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     private var _notebooks: [Notebook] = []
     private var _numberOfNotebooks: Int { return _notebooks.count }
-    var dataSourceOfNotebook: DataSourceOfNotebook!
+    let dataSourceOfNotebook = DataSourceOfNotebook()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,7 +117,7 @@ extension NotebooksListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let aNotebook = notebook(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier:
-            NotebookCell.defaultReuseIdentifier, for: indexPath) as! NotebookCell
+                                                    NotebookCell.defaultReuseIdentifier, for: indexPath) as! NotebookCell
         
         if let count = aNotebook.notes?.count, let name = aNotebook.name
         {

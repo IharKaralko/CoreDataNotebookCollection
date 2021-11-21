@@ -12,13 +12,13 @@ import CoreData
 class DataSourceOfNotebook {
     private  var context: NSManagedObjectContext
     
-    init(context: NSManagedObjectContext = CoreDataManager.instance.persistentContainer.viewContext){
+    init(context: NSManagedObjectContext = CoreDataManager.instance.persistentContainer.viewContext) {
         self.context = context
     }
 }
 
 extension DataSourceOfNotebook {
-    func getNotebooks() -> [Notebook]{
+    func getNotebooks() -> [Notebook] {
         var notebooks = [Notebook]()
         let fetchRequest = createFetchRequest()
         if let result = try? context.fetch(fetchRequest) {
@@ -49,8 +49,8 @@ extension DataSourceOfNotebook {
     }
     
     func setupFetchedResultsController() -> NSFetchedResultsController<Notebook> {
-         let fetchRequest = createFetchRequest()
-       let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "notebooks")
+        let fetchRequest = createFetchRequest()
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "notebooks")
         do {
             try fetchedResultsController.performFetch()
         } catch {
@@ -60,7 +60,7 @@ extension DataSourceOfNotebook {
     }
     
     
-private func createFetchRequest() -> NSFetchRequest<Notebook> {
+    private func createFetchRequest() -> NSFetchRequest<Notebook> {
         let fetchRequest: NSFetchRequest<Notebook> = Notebook.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "creationDate",
                                               ascending: false)

@@ -92,7 +92,7 @@ private extension NotesListViewController {
         alert.addAction(saveAction)
         present(alert, animated: true, completion: nil)
     }
-
+    
     func addNote(name: String) {
         let note = dataSourceOfNote.createNote(name: name, notebook: notebook)
         _notes.insert(note, at: 0)

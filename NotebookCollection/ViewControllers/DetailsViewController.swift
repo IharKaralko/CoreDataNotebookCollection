@@ -19,7 +19,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         if let title = note.title {
             navigationItem.title = title
-         }
+        }
         textView.text = note.text
     }
     

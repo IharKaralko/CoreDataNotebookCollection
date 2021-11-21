@@ -13,13 +13,13 @@ class DataSourceOfNote {
     
     private  var context: NSManagedObjectContext
     
-    init(context: NSManagedObjectContext = CoreDataManager.instance.persistentContainer.viewContext){
+    init(context: NSManagedObjectContext = CoreDataManager.instance.persistentContainer.viewContext) {
         self.context = context
     }
 }
 
 extension DataSourceOfNote {
-    func getNotes(notebook: Notebook) -> [Note]{
+    func getNotes(notebook: Notebook) -> [Note] {
         var notes = [Note]()
         let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
         let predicate = NSPredicate(format: "notebook == %@", notebook)

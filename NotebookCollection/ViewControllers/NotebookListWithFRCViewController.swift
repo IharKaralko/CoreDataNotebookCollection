@@ -12,7 +12,7 @@ import CoreData
 class NotebookListWithFRCViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     private var _fetchedResultsController: NSFetchedResultsController<Notebook>!
-    var dataSourceOfNotebook: DataSourceOfNotebook!
+    let dataSourceOfNotebook = DataSourceOfNotebook()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +109,7 @@ extension NotebookListWithFRCViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let aNotebook = _fetchedResultsController.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier:
-            NotebookCell.defaultReuseIdentifier, for: indexPath) as! NotebookCell
+                                                    NotebookCell.defaultReuseIdentifier, for: indexPath) as! NotebookCell
         
         if let count = aNotebook.notes?.count, let name = aNotebook.name {
             let noteString = count == 1 ? "note" : "notes"
