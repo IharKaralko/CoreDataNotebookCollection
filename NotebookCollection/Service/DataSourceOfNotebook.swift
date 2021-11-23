@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class DataSourceOfNotebook {
-    private  var context: NSManagedObjectContext
+    private var context: NSManagedObjectContext
     
     init(context: NSManagedObjectContext = CoreDataManager.instance.persistentContainer.viewContext) {
         self.context = context

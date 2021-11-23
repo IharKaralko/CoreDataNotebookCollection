@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let navigationController = window?.rootViewController as! UINavigationController
-        _ = navigationController.topViewController as! NotebookListWithFRCViewController
+        _ = navigationController.topViewController as! NotebooksListViewController
         
         return true
     }
