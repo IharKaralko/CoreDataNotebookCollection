@@ -10,10 +10,13 @@ import Foundation
 import CoreData
 
 class DataSourceOfNoteContent {
-    private  var context: NSManagedObjectContext
-    
+    var context: NSManagedObjectContext
+    var childContext: NSManagedObjectContext
+
     init(context: NSManagedObjectContext = CoreDataManager.instance.persistentContainer.viewContext) {
         self.context = context
+        self.childContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        childContext.parent = context
     }
 }
 

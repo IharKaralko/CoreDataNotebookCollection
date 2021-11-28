@@ -31,11 +31,11 @@ class DetailsViewController: UIViewController {
     }
 }
 
-extension DetailsViewController: UITextViewDelegate {
-    func textViewDidEndEditing(_ textView: UITextView) {
-    dataSourceOfNoteContent.updateText(note: note, text: textView.attributedText)
-    }
-}
+//extension DetailsViewController: UITextViewDelegate {
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//    dataSourceOfNoteContent.updateText(note: note, text: textView.attributedText)
+//    }
+//}
 
 private extension DetailsViewController {
     func presentDeleteNoteAlert() {
@@ -71,6 +71,9 @@ private extension DetailsViewController {
     
     @objc
     func redTapped(sender: Any) {
+        let childContext = dataSourceOfNoteContent.childContext
+        let mainContext = dataSourceOfNoteContent.context
+        
         let newText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
         let attributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.red,
@@ -78,10 +81,25 @@ private extension DetailsViewController {
             .underlineColor: UIColor.red
         ]
         newText.addAttributes(attributes, range: textView.selectedRange)
-        
-        let selectedTextRange = textView.selectedTextRange
-        textView.attributedText = newText
-        textView.selectedTextRange = selectedTextRange
+        childContext.perform {
+            self.note.noteContent?.attributedText = newText
+            sleep(5)
+            do {
+                try childContext.save()
+                mainContext.performAndWait {[weak self] in
+                    let selectedTextRange = self?.textView.selectedTextRange
+                    self?.textView.attributedText = newText
+                    self?.textView.selectedTextRange = selectedTextRange
+                    self?.updateNote()
+                }
+            } catch {
+                fatalError("Failure to save context: \(error)")
+            }
+        }
+    }
+    
+    func updateNote() {
+        dataSourceOfNoteContent.updateText(note: note, text: textView.attributedText)
     }
     
     @objc
@@ -91,7 +109,7 @@ private extension DetailsViewController {
             .font: UIFont.systemFont(ofSize: 14.0) as Any,
             .foregroundColor: UIColor.black,
             .underlineStyle: 0
-           // .underlineColor: UIColor.black
+            // .underlineColor: UIColor.black
         ]
         newText.addAttributes(attributes, range: textView.selectedRange)
         let selectedTextRange = textView.selectedTextRange
