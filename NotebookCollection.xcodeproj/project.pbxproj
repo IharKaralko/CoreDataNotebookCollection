@@ -15,6 +15,9 @@
 		4326519E23A7D20200E3B69F /* UpdateToNewEntity.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4326519D23A7D20200E3B69F /* UpdateToNewEntity.xcmappingmodel */; };
 		432651A023A7D34C00E3B69F /* UpdateToNewEntityPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326519F23A7D34C00E3B69F /* UpdateToNewEntityPolicy.swift */; };
 		432651A223A7D9D600E3B69F /* DataSourceOfNoteContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432651A123A7D9D600E3B69F /* DataSourceOfNoteContent.swift */; };
+		43625DC72753F64800ACBD42 /* UpdateToShop.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 43625DC62753F64800ACBD42 /* UpdateToShop.xcmappingmodel */; };
+		43625DC92754014A00ACBD42 /* ShopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43625DC82754014A00ACBD42 /* ShopListViewController.swift */; };
+		43625DCB2754022F00ACBD42 /* DataSourceOfShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43625DCA2754022F00ACBD42 /* DataSourceOfShop.swift */; };
 		438F9287239D32BE00909C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F9286239D32BE00909C4C /* AppDelegate.swift */; };
 		438F9289239D32BE00909C4C /* NotebooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F9288239D32BE00909C4C /* NotebooksListViewController.swift */; };
 		438F928C239D32BE00909C4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438F928A239D32BE00909C4C /* Main.storyboard */; };
@@ -37,6 +40,10 @@
 		4326519D23A7D20200E3B69F /* UpdateToNewEntity.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UpdateToNewEntity.xcmappingmodel; sourceTree = "<group>"; };
 		4326519F23A7D34C00E3B69F /* UpdateToNewEntityPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateToNewEntityPolicy.swift; sourceTree = "<group>"; };
 		432651A123A7D9D600E3B69F /* DataSourceOfNoteContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceOfNoteContent.swift; sourceTree = "<group>"; };
+		43625DC52753F58F00ACBD42 /* NotebookCollectionWithShops.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotebookCollectionWithShops.xcdatamodel; sourceTree = "<group>"; };
+		43625DC62753F64800ACBD42 /* UpdateToShop.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UpdateToShop.xcmappingmodel; sourceTree = "<group>"; };
+		43625DC82754014A00ACBD42 /* ShopListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListViewController.swift; sourceTree = "<group>"; };
+		43625DCA2754022F00ACBD42 /* DataSourceOfShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceOfShop.swift; sourceTree = "<group>"; };
 		438F9283239D32BE00909C4C /* NotebookCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotebookCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438F9286239D32BE00909C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		438F9288239D32BE00909C4C /* NotebooksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebooksListViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +75,7 @@
 				431605C4239FDDB1002140F2 /* DataSourceOfNotebook.swift */,
 				431605C6239FDDD1002140F2 /* DataSourceOfNote.swift */,
 				432651A123A7D9D600E3B69F /* DataSourceOfNoteContent.swift */,
+				43625DCA2754022F00ACBD42 /* DataSourceOfShop.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -107,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				438F928D239D32BE00909C4C /* NotebookCollection.xcdatamodeld */,
+				43625DC62753F64800ACBD42 /* UpdateToShop.xcmappingmodel */,
 				4326519D23A7D20200E3B69F /* UpdateToNewEntity.xcmappingmodel */,
 				431605C1239FB11B002140F2 /* CoreDataManager.swift */,
 				4326519F23A7D34C00E3B69F /* UpdateToNewEntityPolicy.swift */,
@@ -147,6 +156,7 @@
 				4393ABFA239E604300BF1D29 /* NotesListViewController.swift */,
 				431605BF239F7C75002140F2 /* DetailsViewController.swift */,
 				430F5CA423A1137400447E13 /* NotebookListWithFRCViewController.swift */,
+				43625DC82754014A00ACBD42 /* ShopListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -240,10 +250,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				431605C5239FDDB1002140F2 /* DataSourceOfNotebook.swift in Sources */,
+				43625DC72753F64800ACBD42 /* UpdateToShop.xcmappingmodel in Sources */,
 				4393ABF6239E361100BF1D29 /* NotebookCell.swift in Sources */,
 				438F9289239D32BE00909C4C /* NotebooksListViewController.swift in Sources */,
 				4393ABF9239E365C00BF1D29 /* Cell.swift in Sources */,
 				431605C7239FDDD1002140F2 /* DataSourceOfNote.swift in Sources */,
+				43625DC92754014A00ACBD42 /* ShopListViewController.swift in Sources */,
+				43625DCB2754022F00ACBD42 /* DataSourceOfShop.swift in Sources */,
 				438F928F239D32BE00909C4C /* NotebookCollection.xcdatamodeld in Sources */,
 				438F9287239D32BE00909C4C /* AppDelegate.swift in Sources */,
 				4393ABFD239E71F800BF1D29 /* NoteCell.swift in Sources */,
@@ -458,10 +471,11 @@
 		438F928D239D32BE00909C4C /* NotebookCollection.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				43625DC52753F58F00ACBD42 /* NotebookCollectionWithShops.xcdatamodel */,
 				4326519C23A7CCA200E3B69F /* NotebookCollectionWithNewEntity.xcdatamodel */,
 				438F928E239D32BE00909C4C /* NotebookCollection.xcdatamodel */,
 			);
-			currentVersion = 4326519C23A7CCA200E3B69F /* NotebookCollectionWithNewEntity.xcdatamodel */;
+			currentVersion = 43625DC52753F58F00ACBD42 /* NotebookCollectionWithShops.xcdatamodel */;
 			path = NotebookCollection.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

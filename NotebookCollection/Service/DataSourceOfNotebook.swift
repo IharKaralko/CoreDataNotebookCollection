@@ -26,7 +26,18 @@ extension DataSourceOfNotebook {
         }
         return notebooks
     }
-    
+
+    func getNotebooks(_ shop: Shop) -> [Notebook] {
+        var notebooks = [Notebook]()
+        let fetchRequest = createFetchRequest()
+     //   let predicate = NSPredicate(format: "shop == %@", shop)
+     //   fetchRequest.predicate = predicate
+        if let result = try? context.fetch(fetchRequest) {
+            notebooks = result
+        }
+        return notebooks
+    }
+
     func createNotebook(name: String) -> Notebook {
         let notebook = Notebook(context: context)
         notebook.name = name
