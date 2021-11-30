@@ -126,11 +126,11 @@ extension NotebooksListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier:
             NotebookCell.defaultReuseIdentifier, for: indexPath) as! NotebookCell
         
-//        if let count = aNotebook.notes?.count, let name = aNotebook.name
-//        {
-//            let noteString = count == 1 ? "note" : "notes"
-//            cell.configCell(name: name, count: count, noteString: noteString)
-//        }
+        if let count = aNotebook.notes?.count, let name = aNotebook.name
+        {
+            let noteString = count == 1 ? "note" : "notes"
+            cell.configCell(name: name, count: count, noteString: noteString)
+        }
         
         return cell
     }

@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let navigationController = window?.rootViewController as! UINavigationController
-        let notebooksListViewController = navigationController.topViewController as! NotebookListWithFRCViewController
-        notebooksListViewController.dataSourceOfNotebook = DataSourceOfNotebook()
+        let notebooksListViewController = navigationController.topViewController as! ShopListViewController
+        notebooksListViewController.dataSourceOfShop = DataSourceOfShop()
         
         return true
     }
